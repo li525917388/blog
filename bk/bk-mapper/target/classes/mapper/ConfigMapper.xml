@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 我们的服务 -->
+<mapper namespace="com.ldh.bk.mapper.ConfigMapper">
+
+
+	<!-- 根据键名获取参数 -->
+	<select id="queryConfigByKey" parameterType="String" resultType="config">
+		<![CDATA[
+			select 
+				id as id,
+				config_name as configName,
+				config_key as configKey,
+				config_value as configValue,
+				remark as remark
+			from bk_config 
+			where config_key = #{key} and valid=1 
+		]]>
+	</select>
+	
+
+	<!-- 查询我的服务列表 -->
+	<select id="queryConfig" resultType="config">
+		<![CDATA[
+			select 
+				id as id,
+				config_name as configName,
+				config_key as configKey,
+				config_value as configValue,
+				remark as remark
+			from bk_config 
+			where valid=1
+		]]>
+	</select>
+	
+	
+</mapper>

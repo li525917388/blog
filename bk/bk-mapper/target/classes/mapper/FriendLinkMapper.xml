@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 我们的服务 -->
+<mapper namespace="com.ldh.bk.mapper.FriendLinkMapper">
+
+	<!-- 查询我的服务列表 -->
+	<select id="queryFriendLinks" resultType="friendLink">
+		<![CDATA[
+			select 
+				id as id,
+				link_title as linkTitle,
+				link_name as linkName,
+				link_url as linkUrl
+			from oth_friend_link  
+			where link_type = 'BLOG' 
+			and valid=1
+			order by sort_no
+		]]>
+	</select>
+	
+	
+</mapper>
